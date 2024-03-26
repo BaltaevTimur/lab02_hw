@@ -119,7 +119,7 @@ Date:   Mon Mar 25 11:09:15 2024 +0300
     Initial commit
 lines 1-23
 ```
-##Part II
+## Part II
 1) В локальной копии репозитория создайте локальную ветку patch1.
 ```sh
 $ git branch patch1
@@ -172,24 +172,46 @@ $ git rebase patch1
 ```
 Current branch patch1 is up to date.
 
-5) Создайте pull-request patch1 -> master.
 
-[pull_request](https://github.com/BaltaevTimur/lab02_hw/pull/1)
-
-5) В локальной копии в ветке patch1 добавьте в исходный код комментарии.
+6) В локальной копии в ветке patch1 добавьте в исходный код комментарии.
 ```sh
+$ edit hello_world.cpp
 ```
+```sh
+#include <iostream>
+#include <string>
 
+
+int main()
+{
+std::string name; // создаем переменную
+std::cin >> name; // вводим значение
+std::cout << "Hello world from " << name; // выводим
+return 0;
+}
+```
 
 7) commit, push.
 ```sh
+$ git commit -m"editting hello_world.cpp"
+$ git push origin patch1
 ```
-
+```sh
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 440 bytes | 440.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/BaltaevTimur/lab02_hw.git
+   b07d324..3a28002  patch1 -> patch1
+```
 
 8) Проверьте, что новые изменения есть в созданном на шаге 5 pull-request
 ```sh
+$ git rebase patch1
 ```
-
+Current branch patch1 is up to date.
 
 9) В удалённый репозитории выполните слияние PR patch1 -> master и удалите ветку patch1 в удаленном репозитории.
 ```sh
@@ -205,16 +227,77 @@ hello_world.cpp | 8 ++++----
 
 10) Локально выполните pull.
 ```sh
+$ git pull origin patch1
 ```
-
+```sh
+From https://github.com/BaltaevTimur/lab02_hw
+ * branch            patch1     -> FETCH_HEAD
+Already up to date.
+```
 
 11) С помощью команды git log просмотрите историю в локальной версии ветки master.
 ```sh
+$ git log
 ```
+```sh
+commit 3a28002114532a6647b47c6679c96827a9a6999c (HEAD -> patch1, origin/patch1)
+Author: BaltaevTimur <timur.baltaev.2005@gmail.com>
+Date:   Tue Mar 26 04:15:35 2024 +0300
 
+    editting hello_world.cpp
+
+commit b07d32415c8b36c28c53879f5c91033129ae15bf (main)
+Author: BaltaevTimur <timur.baltaev.2005@gmail.com>
+Date:   Mon Mar 25 11:39:05 2024 +0300
+
+    editting hello_world.cpp
+
+commit d7c286e331f363e5447916a83e63999384480ee6
+Author: BaltaevTimur <timur.baltaev.2005@gmail.com>
+Date:   Mon Mar 25 11:28:27 2024 +0300
+
+    editing hello_world.cpp
+
+commit b3c12b4ff6f9c43d96dafbc50af0908149592204
+Author: BaltaevTimur <timur.baltaev.2005@gmail.com>
+Date:   Mon Mar 25 11:24:04 2024 +0300
+
+lines 1-22
+```
 
 12) Удалите локальную ветку patch1.
 ```sh
+$ git branch -d patch1
 ```
+Deleted branch patch1 (was 3a28002).
+
+## Part III
+
+1) Создайте новую локальную ветку patch2.
+```sh
+$ git branch patch2
+```
+
+
+3) commit, push, создайте pull-request patch2 -> master.
+```sh
+$ git commit -m"editting hello_world.cpp"
+$ git push origin patch2
+```
+
+
+5) Убедитесь, что в pull-request появились конфликтны.
+
+Появились конфликты.
+
+
+6) Для этого локально выполните pull + rebase (точную последовательность команд, следует узнать самостоятельно). Исправьте конфликты.
+
+Исправил конфликты через git-hub(кнопка Resolve Conflicts)
+
+
+8) Убедитель, что в pull-request пропали конфликтны.
+
+Пропали.
 
 
