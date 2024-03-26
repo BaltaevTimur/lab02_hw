@@ -1,11 +1,11 @@
 #include <iostream>
 #include <string>
-using namespace std;
+
 
 int main()
 {
-string name;
-cin >> name;
-cout << "Hello world from " << name;
+std::string name; // создаем переменную
+std::cin >> name; // вводим значение
+std::cout << "Hello world from " << name; // выводим
 return 0;
 }
