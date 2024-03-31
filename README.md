@@ -293,8 +293,24 @@ $ git push origin patch2
 
 6) Для этого локально выполните pull + rebase (точную последовательность команд, следует узнать самостоятельно). Исправьте конфликты.
 
-Исправил конфликты через git-hub(кнопка Resolve Conflicts)
-
+```sh
+$ git pull --rebase origin main
+```
+```sh
+remote: Enumerating objects: 10, done.
+remote: Counting objects: 100% (10/10), done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 6 (delta 3), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (6/6), 3.51 KiB | 359.00 KiB/s, done.
+From https://github.com/BaltaevTimur/lab02_hw
+ * branch            main       -> FETCH_HEAD
+   1687254..f4bd38c  main       -> origin/main
+Updating b07d324..f4bd38c
+Fast-forward
+ README.md       | 304 +++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ hello_world.cpp |   8 +-
+ 2 files changed, 307 insertions(+), 5 deletions(-)
+```
 
 8) Убедитель, что в pull-request пропали конфликтны.
 
